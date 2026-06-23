@@ -1,0 +1,14 @@
+# Changes here will be overwritten by Copier
+_commit: 52d9952
+_src_path: https://github.com/ubc-DERC/derc_copier
+author_formal: Goring
+author_given: Simon
+author_orcid: https://orcid.org/0000-0002-2700-4605
+code_of_conduct_lang: code_en
+copyright_year: 2026
+license_type: MIT License
+lifecycle: lifecycle_planning
+project_description: Coordinating the YAML to DDL to Database pipeline.
+project_name: d3-service
+repository: UBC-DERC
+template_profile: recommended

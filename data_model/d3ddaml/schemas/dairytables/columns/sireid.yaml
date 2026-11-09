@@ -1,0 +1,4 @@
+- name: sireid
+  type: uuid7
+  comment: >-
+    A unique identifier for a particular sire.

@@ -10,6 +10,7 @@ Description:
 ## Tables
 
 * [cows](tables/cows.md)
+* [dairyevents](tables/dairyevents.md)
 * [datasetidentifiers](tables/datasetidentifiers.md)
 * [datasetpublications](tables/datasetpublications.md)
 * [datasets](tables/datasets.md)
@@ -21,5 +22,7 @@ Description:
 * [instrumentowners](tables/instrumentowners.md)
 * [instruments](tables/instruments.md)
 * [keywords](tables/keywords.md)
+* [milkproduction](tables/milkproduction.md)
 * [publicationkeywords](tables/publicationkeywords.md)
 * [publications](tables/publications.md)
+* [sires](tables/sires.md)

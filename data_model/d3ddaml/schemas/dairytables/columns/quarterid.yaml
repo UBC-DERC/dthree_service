@@ -1,0 +1,5 @@
+- name: quarterid
+  type: integer
+  comment: >-
+    The quarter of the cow's udder from which the milk was produced. This is an integer value from 1 to 4, pointing to cow quarters, a small vocabulary table.
+  x-enum: [fl, fr, rl, rr]

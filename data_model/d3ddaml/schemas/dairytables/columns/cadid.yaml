@@ -1,0 +1,3 @@
+- name: cadid
+  type: text
+  comment: This is the unique identifier given to the cow by the Canadian Government that conforms to ISO 11784.

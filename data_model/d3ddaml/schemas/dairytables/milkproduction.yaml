@@ -1,0 +1,38 @@
+name: milkproduction
+type: BASE TABLE
+schema: dairy
+comment: >-
+  The primary table for milk production data. This table should tie to any information about cows,
+  their locations, movement, treatments and, ultimately, datasets produced using the cows as primary data
+  elements. This table is intended to capture the milk production data for each cow, including the
+  date of production, the amount of milk produced, and any relevant metadata about the production process.
+columns:
+  - $ref: columns/milkproductionid.yaml
+  - name: cadid
+    type: text
+    comment: This is the unique identifier given to the cow by the Canadian Government that conforms to ISO 11784.
+  - name: production_datetime
+    type: datetimetz
+    comment: The date and time on which the milk production was recorded.
+  - $ref: columns/instrumentinstanceid.yaml
+  - name: milk_yield
+    type: numeric(10,2)
+    comment: The volume of milk produced in kg.
+  - name: milk_flow
+    type: numeric(5,2)
+    comment: The flow rate of the milk produced.
+  - name: attachment_time
+    type: integer
+    comment: The time taken to attach the milking equipment to the cow.
+    x-validate: Is this right? Or is it the amount of time the cow was attached to the milking equipment? This needs to be clarified.
+  - name: cup_off_time
+    type: integer
+    comment: The time taken to detach the milking equipment from the cow.
+    x-validate: Is this right? Or is it the amount of time the cow was attached to the milking equipment? This needs to be clarified.
+  - name: milk_temperature
+    type: numeric(5,2)
+    comment: The temperature of the milk produced in degrees Celsius.
+  - name: milk_conductivity
+    type: numeric(5,2)
+    comment: The electrical conductivity of the milk produced.
+  - $ref: columns/quarterid.yaml

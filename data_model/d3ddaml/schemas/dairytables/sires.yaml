@@ -1,0 +1,21 @@
+name: sires
+type: BASE TABLE
+comment: >-
+  A sire is a male parent of a cow. This table contains information about the sires.
+x-reference:
+  ontology: DCPO
+  term: DCPO:Bull
+  url: https://agroportal.eu/ontologies/DCPO/Bull
+  relation: broadMatch
+columns:
+  - $ref: columns/sireid.yaml
+  - name: breed
+    type: text
+    comment: The breed of the sire.
+    x-enum: [HO, AN, H, PS]
+  - name: sire_name
+    type: text
+    comment: The name of the sire.
+  - name: registration_number
+    type: text
+    comment: The registration number of the sire.

@@ -11,9 +11,7 @@
     url: https://agroportal.eu/ontologies/DCPO/Bovine
     relation: broadMatch
   columns:
-    - name: cadid
-      type: text
-      comment: This is the unique identifier given to the cow by the Canadian Government that conforms to ISO 11784.
+    - $ref: columns/cadid.yaml
     - name: cowschemeid
       type: text
       comment: >-
@@ -57,10 +55,7 @@
       type: text
       comment: >-
         The cadid identifier for the dam. Should generally be constrained to be a valid identifer.
-    - name: sireid
-      type: text
-      comment: >-
-        My guess is that this is actually a pointer to another table, with some extra information.
+    - $ref: columns/sireid.yaml
     - $ref: columns/datecreated.yaml
     - $ref: columns/datemodified.yaml
   constraints:

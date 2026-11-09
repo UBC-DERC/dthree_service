@@ -2,6 +2,7 @@
   comment: A particular instrument, with a particular location.
   type: BASE TABLE
   columns:
+    - $ref: columns/instrumentinstanceid.yaml
     - $ref: columns/instrumentid.yaml
     - name: location
       comment: >-

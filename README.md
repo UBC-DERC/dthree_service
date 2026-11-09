@@ -60,9 +60,35 @@ python -m pip install .
 
 ## How to Use this Repository
 
-<!--
-A short description of how this repository is expected to be used.
--->
+### Step 1: Build the data model
+
+The DERC data model is written in [DDAML](https://ubc-derc.github.io/data_model/specifications/SPECIFICATION/)
+in `data_model/d3ddaml/`, starting from `dairymodel.yaml`. A Docker container runs
+[`data-model`](https://github.com/UBC-DERC/data_model) over it to:
+
+* validate every file and check that all cross-references resolve;
+* write the single resolved model to `data_model/output.yaml` (the input for the DDL step);
+* write the Markdown documentation to `docs/database/`, which the site's `mkdocs.yml` publishes.
+
+From the repository root:
+
+```bash
+docker build -t dthree-data-model data_model
+docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/work" dthree-data-model \
+  data_model/d3ddaml/dairymodel.yaml --docs docs --output data_model/output.yaml
+```
+
+If the model is invalid, the container prints every problem and exits with a non-zero
+status, writing nothing.
+
+The image installs a pinned release of `data-model` (set by `DATA_MODEL_SPEC` in
+`data_model/Dockerfile`). To test unreleased changes from a local `data_model`
+checkout next to this repository, build the `local` target instead:
+
+```bash
+docker build --target local --build-context data_model_src=../data_model \
+  -t dthree-data-model data_model
+```
 
 ## Funding Statement
 

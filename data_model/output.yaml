@@ -39,7 +39,7 @@ database:
         name: sex
         nullable: true
         type: nchar(1)
-        x-$reference:
+        x-reference:
         - ontology: PATO
           relation: exactMatch
           term: PATO:0001894
@@ -55,7 +55,7 @@ database:
         name: birthweight
         nullable: true
         type: integer
-        x-$references:
+        x-references:
         - ontology: ATOL
           relation: closeMatch
           term: ATOL:0000351
@@ -140,7 +140,7 @@ database:
       name: cows
       schema: dairy
       type: BASE TABLE
-      x-$reference:
+      x-reference:
       - ontology: DCPO
         relation: broadMatch
         term: dcpo:bovine
@@ -356,7 +356,7 @@ database:
       schema: dairy
       type: BASE TABLE
     - columns:
-      - comment: A unique internal identifier for an external database $reference.
+      - comment: A unique internal identifier for an external database reference.
         default: null
         name: databaseid
         nullable: true
@@ -409,7 +409,7 @@ database:
         type: datetime
       comment: A table to manage and record pointers to various external resources.
         These resources include data management tools such as DOIs and ARKs, product
-        identifiers such as UPC codes,  and other external $references such as WikiData,
+        identifiers such as UPC codes,  and other external references such as WikiData,
         or others.
       constraints: []
       indexes: []
@@ -428,7 +428,7 @@ database:
         name: identifier
         nullable: true
         type: text
-      - comment: A unique internal identifier for an external database $reference.
+      - comment: A unique internal identifier for an external database reference.
         default: null
         name: externaldatabaseid
         nullable: true
@@ -483,7 +483,7 @@ database:
         name: fullname
         nullable: true
         type: text
-        x-$reference:
+        x-reference:
         - ontology: schema
           relation: exactMatch
           term: schema:name
@@ -493,19 +493,19 @@ database:
         name: formalname
         nullable: true
         type: text
-        x-$reference:
+        x-reference:
         - nullable: true
           ontology: schema
           relation: closeMatch
           term: schema:familyname
           url: https://schema.org/familyName
-      - comment: For individuals who have a p$referred name that is not the same as
+      - comment: For individuals who have a preferred name that is not the same as
           their given name.
         default: null
-        name: p$referredname
+        name: preferredname
         nullable: true
         type: text
-        x-$reference:
+        x-reference:
         - ontology: schema
           term: schema:alternateName
           url: https://schema.org/alternateName
@@ -542,7 +542,7 @@ database:
         name: supersedingrecordid
         nullable: true
         type: UUID7
-        x-$reference:
+        x-reference:
         - ontology: PAV
           relation: exactMatch
           term: PAV:hasCurrentVersion
@@ -1086,7 +1086,7 @@ database:
         name: datemodified
         nullable: true
         type: datetime
-      - comment: A valid BibTeX $reference for a publication.
+      - comment: A valid BibTeX reference for a publication.
         default: null
         name: bibtex
         nullable: true

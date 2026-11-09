@@ -1,0 +1,9 @@
+- name: individualid
+  type: uuid7
+  comment: >- 
+    An internal and unique identifier for an individual to support identification within the database.
+  x-reference:
+  - ontology: schema.org
+    term: schema:identifier
+    relation: broadMatch
+    url: https://schema.org/identifier

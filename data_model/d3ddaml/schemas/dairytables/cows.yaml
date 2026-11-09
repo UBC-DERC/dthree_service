@@ -1,0 +1,94 @@
+- name: cows
+  type: BASE TABLE
+  schema: dairy
+  comment: >-
+    The primary table for cow-related identification. This table should tie to any information about cows,
+    their locations, movement, treatments and, ultimately, datasets produced using the cows as primary data
+    elements.
+  x-$reference:
+  - ontology: DCPO
+    term: dcpo:bovine
+    url: https://agroportal.eu/ontologies/DCPO/Bovine
+    relation: broadMatch
+  columns:
+    - name: cadid
+      type: text
+      comment: This is the unique identifier given to the cow by the Canadian Government that conforms to ISO 11784.
+    - name: cowschemeid
+      type: text
+      comment: >-
+        We clearly identify the scheme from which the cow ID is coming from. It is implied 
+        that this is the Canadian data scheme, but if this data is used in synthesis work 
+        it is important to identify the source.
+    - name: localcowid
+      type: integer
+      comment: >-
+        Within the UBC dairy the cows are given ear tags with the numbering scheme YNNN
+        where Y is the last number of the year (6 for 2026) and NNN is the birth order of
+        the cow in a given year.
+    - name: sex
+      type: nchar(1)
+      comment: >-
+        We record both male and female births in this database. Values are an enum
+        (male/female) that should correspond to PATO.
+      x-$reference:
+      - ontology: PATO
+        term: PATO:0001894
+        url: http://purl.obolibrary.org/obo/PATO_0001894
+        relation: exactMatch
+      - ontology: DCPO
+        term: DCPO:Sex
+        relation: exactMatch
+        url: http://purl.org/aro/dcpo#Sex
+    - name: birthweight
+      type: integer
+      comment: >-
+        The weight of the cow at birth in kg. This should likely be moved to its own `weights` table, where the
+        weight at birth is the weight that is closest to a cow's birth weight.
+      x-$references:
+      - ontology: ATOL
+        term: ATOL:0000351
+        relation: closeMatch
+      - ontology: EFO
+        term: EFO:0004344
+        url: http://www.ebi.ac.uk/efo/EFO_0004344
+        relation: exactMatch
+    - name: damid
+      type: text
+      comment: >-
+        The cadid identifier for the dam. Should generally be constrained to be a valid identifer.
+    - name: sireid
+      type: text
+      comment: >-
+        My guess is that this is actually a pointer to another table, with some extra information.
+    - $ref: columns/datecreated.yaml
+    - $ref: columns/datemodified.yaml
+  constraints:
+    - name: cowuniqueid
+      comment: >-
+        The PRIMARY KEY for this table is the unique set of the Canadian ID and the scheme type. In our case
+        all of the identifiers should have 
+      type: PRIMARY KEY
+      ddl: PRIMARY KEY (cadid, cowschemeid)
+      columns:
+      - cadid
+      - cowschemeid
+    - name: isocadid
+      comment: >-
+        The cadid must follow the ISO 11784 standard, with '124' leading for Canada and the trailing numbers
+        ranging from 000000001 to 299999999.
+      type: CHECK
+      ddl: CHECK (cadid ~* '^124000[0-2][0-9]{8}$')
+      columns:
+      - cadid
+    - name: damidvalid
+      comment: A constraint to ensure that the dam ID is a valid ID based on the Canadian government ID scheme.
+      type: FOREIGN KEY
+      columns:
+      - damid
+      references:
+        table: cows
+        columns:
+        - cadid
+        on_update: CASCADE
+        on_delete: CASCADE

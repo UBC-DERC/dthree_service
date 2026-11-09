@@ -3,12 +3,12 @@
   comment: >-
     A table to manage and record pointers to various external resources.
     These resources include data management tools such as DOIs and ARKs, product identifiers such as UPC codes, 
-    and other external $references such as WikiData, or others.
+    and other external references such as WikiData, or others.
   type: BASE TABLE
   columns:
     - name: databaseid
       type: uuid7
-      comment: A unique internal identifier for an external database $reference.
+      comment: A unique internal identifier for an external database reference.
     - name: externaldatabase
       type: text
       comment: The name of the external database or data resource.

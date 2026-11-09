@@ -5,7 +5,7 @@
     The primary table for cow-related identification. This table should tie to any information about cows,
     their locations, movement, treatments and, ultimately, datasets produced using the cows as primary data
     elements.
-  x-$reference:
+  x-reference:
   - ontology: DCPO
     term: dcpo:bovine
     url: https://agroportal.eu/ontologies/DCPO/Bovine
@@ -31,7 +31,7 @@
       comment: >-
         We record both male and female births in this database. Values are an enum
         (male/female) that should correspond to PATO.
-      x-$reference:
+      x-reference:
       - ontology: PATO
         term: PATO:0001894
         url: http://purl.obolibrary.org/obo/PATO_0001894
@@ -45,7 +45,7 @@
       comment: >-
         The weight of the cow at birth in kg. This should likely be moved to its own `weights` table, where the
         weight at birth is the weight that is closest to a cow's birth weight.
-      x-$references:
+      x-references:
       - ontology: ATOL
         term: ATOL:0000351
         relation: closeMatch

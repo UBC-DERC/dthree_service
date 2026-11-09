@@ -17,7 +17,7 @@
     - $ref: columns/datemodified.yaml
     - name: bibtex
       type: jsonb
-      comment: A valid BibTeX $reference for a publication.
+      comment: A valid BibTeX reference for a publication.
     - name: datepublishedstart
       type: datetime
       comment: >-

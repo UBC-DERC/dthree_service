@@ -7,7 +7,7 @@
     - name: fullname
       type: text
       comment: Full name of an individual, in written order (i.e., as they would write their names)
-      x-$reference:
+      x-reference:
       - ontology: schema
         term: schema:name
         relation: exactMatch
@@ -16,16 +16,16 @@
       comment: >-
         This is the last name, family name, or singular name that would lead in a journal citation, 
         or when the individual is formally addressed.
-      x-$reference:
+      x-reference:
       - ontology: schema
         term: schema:familyname
         url: https://schema.org/familyName
         relation: closeMatch
         nullable: true
-    - name: p$referredname
+    - name: preferredname
       type: text
-      comment: For individuals who have a p$referred name that is not the same as their given name.
-      x-$reference:
+      comment: For individuals who have a preferred name that is not the same as their given name.
+      x-reference:
       - ontology: schema
         term: schema:alternateName
         url: https://schema.org/alternateName
@@ -36,7 +36,7 @@
         In the case a record is replaced with an alternative record (for example an individual changes 
         their name, but the "old" name remains in the publication list).
       type: UUID7
-      x-$reference:
+      x-reference:
       - ontology: PAV
         term: PAV:hasCurrentVersion
         relation: exactMatch

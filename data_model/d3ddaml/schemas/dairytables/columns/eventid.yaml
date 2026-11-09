@@ -1,0 +1,10 @@
+- name: eventid
+  comment: >-
+    The primary key for the dairyevents table. This is a unique identifier for each event,
+    and is used to link to other tables in the database.
+  type: UUID7
+  x-reference:
+  - ontology: schema.org
+    term: schema:identifier
+    relation: broadMatch
+    url: https://schema.org/identifier

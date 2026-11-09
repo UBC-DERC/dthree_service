@@ -1,3 +1,8 @@
 - name: institutionid
   type: UUID7
   comment: The unique internal identifier for the institution.
+  x-reference:
+  - ontology: schema.org
+    term: schema:identifier
+    relation: broadMatch
+    url: https://schema.org/identifier

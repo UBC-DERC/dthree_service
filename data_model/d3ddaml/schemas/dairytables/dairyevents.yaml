@@ -1,0 +1,18 @@
+- name: dairyevents
+  schema: dairy
+  type: BASE TABLE
+  comment: >-
+    The primary table for storing records about an individual dairy event. We are modeling this table after the [schema:Event](https://schema.org/Event) data model to some degree, for broader compatibility.
+  columns:
+    - $ref: columns/eventid.yaml
+    - name: eventtype
+      type: text
+      comment: >- 
+        The type of event that occurred. This should be a controlled vocabulary, but we don't have one yet.
+        At minimum it should include: birth, insemination, dry off, calving, death, treatment, heat and other
+        events that are recorded in dairycomp or dairyplan.
+      x-reference:
+      - ontology: schema
+        term: schema:eventType
+        url: https://schema.org/eventType
+        relation: exactMatch

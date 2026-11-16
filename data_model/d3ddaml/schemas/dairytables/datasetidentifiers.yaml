@@ -11,6 +11,11 @@
       an ARK or a different data object. Currently the choice is simply
       one of the entries in the `externaldatabases` table, but this may
       be limited to a subset in the future.
+    x-reference: 
+    - ontology: schema.org
+      term: schema:identifier
+      relation: broadMatch
+      url: https://schema.org/identifier
   - name: externaldatabaseid
     type: uuid7
     comment: >-
@@ -44,11 +49,11 @@
     type: FOREIGN KEY
     columns:
     - externaldatabaseid
-    ddl: FOREIGN KEY (externaldatabaseid) REFERENCES externaldatabases(databaseid) ON UPDATE CASCADE ON DELETE CASCADE
+    ddl: FOREIGN KEY (externaldatabaseid) REFERENCES externaldatabases(externaldatabaseid) ON UPDATE CASCADE ON DELETE CASCADE
     comment: Foreign key reference to external databases or resources.
     references:
       table: externaldatabases
       columns:
-      - databaseid
+      - externaldatabaseid
       on_update: CASCADE
       on_delete: CASCADE

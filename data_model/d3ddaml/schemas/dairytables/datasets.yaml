@@ -20,4 +20,3 @@
     ddl: PRIMARY KEY (datasetid)
     columns:
     - datasetid
-    

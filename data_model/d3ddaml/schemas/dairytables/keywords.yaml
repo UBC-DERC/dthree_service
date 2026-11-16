@@ -27,8 +27,8 @@
     columns:
     - sourceid
     comment: A foreign key to point to the source id.
-    ddl: FOREIGN KEY (sourceid) REFERENCES externaldatabases(databaseid)
+    ddl: FOREIGN KEY (sourceid) REFERENCES externaldatabases(externaldatabaseid)
     references:
       table: externaldatabases
       columns:
-        - databaseid
+        - externaldatabaseid

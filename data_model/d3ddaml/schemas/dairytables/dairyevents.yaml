@@ -2,7 +2,8 @@
   schema: dairy
   type: BASE TABLE
   comment: >-
-    The primary table for storing records about an individual dairy event. We are modeling this table after the [schema:Event](https://schema.org/Event) data model to some degree, for broader compatibility.
+    The primary table for storing records about an individual dairy event. We are modeling this table after
+    the [schema:Event](https://schema.org/Event) data model to some degree, for broader compatibility.
   columns:
     - $ref: columns/eventid.yaml
     - name: eventtype

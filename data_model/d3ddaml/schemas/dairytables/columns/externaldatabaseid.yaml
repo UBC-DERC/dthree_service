@@ -1,0 +1,8 @@
+- name: externaldatabaseid
+  type: uuid7
+  comment: A unique internal identifier for an external database reference.
+  x-reference:
+  - ontology: schema.org
+    term: schema:identifier
+    relation: broadMatch
+    url: https://schema.org/identifier

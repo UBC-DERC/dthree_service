@@ -3,3 +3,8 @@
   comment: >-
     The quarter of the cow's udder from which the milk was produced. This is an integer value from 1 to 4, pointing to cow quarters, a small vocabulary table.
   x-enum: [fl, fr, rl, rr]
+  x-reference:
+  - ontology: wikidata
+    term: wd:Q206718
+    relation: broadMatch
+    url: https://www.wikidata.org/wiki/Q206718

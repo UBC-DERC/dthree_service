@@ -4,3 +4,8 @@
     be a central element of the data model. At present we are implementing the toolset, and providing the opportunity to see that a record
     was modified, not neccessarily how that record was modified.
   type: datetime
+  x-reference:
+  - ontology: schema
+    term: schema:dateModified
+    url: https://schema.org/dateModified
+    relation: exactMatch

@@ -1,6 +1,7 @@
 # syntax=docker/dockerfile:1
 # Builds the DDAML model in d3ddaml/ with the data-model package
-# at https://github.com/UBC-DERC/data_model
+# at https://github.com/UBC-DERC/ddlml.
+#
 # Building the model validates the ddaml/yaml and writes the
 # resolved model (output.yaml) along with Markdown documentation.
 #
@@ -36,7 +37,7 @@ RUN uv pip install /src
 FROM base AS release
 # Until data-model is on PyPI, install from a git tag. After the beta:
 #   --build-arg DATA_MODEL_SPEC="data-model==2026.11.0b1"
-ARG DATA_MODEL_SPEC="data-model @ git+https://github.com/UBC-DERC/data_model@2026-11-alpha"
+ARG DATA_MODEL_SPEC="ddlml @ git+https://github.com/UBC-DERC/ddlml@2026-11-alpha"
 RUN apt-get update \
  && apt-get install -y --no-install-recommends git \
  && rm -rf /var/lib/apt/lists/*

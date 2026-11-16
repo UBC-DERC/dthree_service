@@ -21,10 +21,10 @@ Description:
 
 ## Constraints
 
-|      name      |           type           |                              ddl                              |                       reference                      |                         comment                         |
-|----------------|--------------------------|---------------------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|
-|  keywordid_pk  |ConstraintType.primary_key|                PRIMARY KEY(keywordid, sourceid)               |                                                      |Primary key for the keywords table (expects to be unique)|
-|keywordsource_fk|ConstraintType.foreign_key|FOREIGN KEY (sourceid) REFERENCES externaldatabases(databaseid)|[externaldatabases](externaldatabases.md) (databaseid)|         A foreign key to point to the source id.        |
+|      name      |           type           |                                  ddl                                  |                           reference                          |                         comment                         |
+|----------------|--------------------------|-----------------------------------------------------------------------|--------------------------------------------------------------|---------------------------------------------------------|
+|  keywordid_pk  |ConstraintType.primary_key|                    PRIMARY KEY(keywordid, sourceid)                   |                                                              |Primary key for the keywords table (expects to be unique)|
+|keywordsource_fk|ConstraintType.foreign_key|FOREIGN KEY (sourceid) REFERENCES externaldatabases(externaldatabaseid)|[externaldatabases](externaldatabases.md) (externaldatabaseid)|         A foreign key to point to the source id.        |
 
 ## Indexes
 
@@ -34,7 +34,7 @@ This table has no index
 
 **References**
 
-* `sourceid` → [externaldatabases](externaldatabases.md) (`databaseid`)
+* `sourceid` → [externaldatabases](externaldatabases.md) (`externaldatabaseid`)
 
 **Referenced By**
 

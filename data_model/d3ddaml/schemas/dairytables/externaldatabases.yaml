@@ -6,12 +6,18 @@
     and other external references such as WikiData, or others.
   type: BASE TABLE
   columns:
-    - name: databaseid
-      type: uuid7
-      comment: A unique internal identifier for an external database reference.
+    - $ref: columns/externaldatabaseid.yaml
     - name: externaldatabase
       type: text
       comment: The name of the external database or data resource.
+      x-reference:
+      - ontology: schema.org
+        term: schema:DataCatalog
+        relation: exactMatch
+        url: https://schema.org/DataCatalog
+    - name: description
+      type: text
+      comment: A description of the external database or data resource.
     - name: url
       type: url
       comment: A web address for this resource, a primary location.

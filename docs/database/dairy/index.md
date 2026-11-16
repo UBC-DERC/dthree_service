@@ -9,12 +9,15 @@ Description:
 
 ## Tables
 
+* [buildings](tables/buildings.md)
+* [cattlebreeds](tables/cattlebreeds.md)
 * [cows](tables/cows.md)
 * [dairyevents](tables/dairyevents.md)
 * [datasetidentifiers](tables/datasetidentifiers.md)
 * [datasetpublications](tables/datasetpublications.md)
 * [datasets](tables/datasets.md)
 * [externaldatabases](tables/externaldatabases.md)
+* [farms](tables/farms.md)
 * [individualidentifiers](tables/individualidentifiers.md)
 * [individuals](tables/individuals.md)
 * [institutions](tables/institutions.md)

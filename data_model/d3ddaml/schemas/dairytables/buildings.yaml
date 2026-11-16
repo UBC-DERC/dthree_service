@@ -1,0 +1,40 @@
+- name: buildings
+  type: BASE TABLE
+  comment: >-
+    A table that contains information about the buildings on a dairy farm.
+    This table is used to store information about the physical structures on
+    the farm, such as barns, offices, and storage facilities.
+    Each building is assigned a unique identifier, and additional information
+    about the building can be stored with descriptions.
+  x-reference:
+  - ontology: schema.org
+    term: schema:Place
+    url: https://schema.org/Place
+    relation: broadMatch
+  columns:
+    - $ref: columns/buildingid.yaml
+    - $ref: columns/farmid.yaml
+    - name: building_name
+      type: text
+      comment: The name of the building.
+      x-reference:
+      - ontology: schema.org
+        term: schema:name
+        url: https://schema.org/name
+        relation: exactMatch
+    - name: description
+      type: text
+      comment: A description of the building.
+      x-reference:
+      - ontology: schema.org
+        term: schema:description
+        url: https://schema.org/description
+        relation: exactMatch
+    - name: location
+      type: geography
+      comment: The geographical location of the building, represented as a point.
+      x-reference:
+      - ontology: schema.org
+        term: schema:geo
+        url: https://schema.org/geo
+        relation: broadMatch

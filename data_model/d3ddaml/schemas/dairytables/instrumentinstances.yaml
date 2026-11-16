@@ -4,11 +4,13 @@
   columns:
     - $ref: columns/instrumentinstanceid.yaml
     - $ref: columns/instrumentid.yaml
+    - $ref: columns/buildingid.yaml
     - name: location
-      comment: >-
-        More specific description of the positioning within the pen/barn. For example, "Halfway down the long side of the pen, 2m height"
+      type: geography
+      comment: The geographical location of the instrument, represented as a point.
+    - name: locationdescription
       type: text
-      nullable: true
+      comment: A description of the instrument placement.
     - $ref: columns/datecreated.yaml
     - $ref: columns/datemodified.yaml
   constraints:
@@ -18,6 +20,18 @@
     columns:
     - instrumentid
     - location
+  - name: instrumentinbuilding_fk
+    type: FOREIGN KEY
+    columns:
+    - buildingid
+    comment: A foreign key to point to the building id.
+    ddl: FOREIGN KEY (buildingid) REFERENCES buildings(buildingid) ON UPDATE CASCADE ON DELETE CASCADE
+    references:
+      table: buildings
+      columns:
+      - buildingid
+      on_update: CASCADE
+      on_delete: CASCADE
   - name: instrumentid_fk
     type: FOREIGN KEY
     columns:

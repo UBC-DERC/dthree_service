@@ -1,0 +1,33 @@
+- name: cattlebreeds
+  type: BASE TABLE
+  comment: >-
+    This table contains information about the different breeds of cattle.
+  x-reference:
+    ontology: DCPO
+    term: DCPO:CattleBreed
+    url: https://agroportal.eu/ontologies/DCPO/CattleBreed
+    relation: broadMatch
+  columns:
+    - $ref: columns/breedid.yaml
+    - name: breed_name
+      type: text
+      comment: The name of the cattle breed.
+    - name: externalid 
+      type: text
+      comment: >-
+        A unique external identifier for the cattle breed. This identifier is used to uniquely identify each breed in the database.
+      x-reference:
+      - ontology: LBO
+        term: LBO:0000001
+        relation: exactMatch
+        url: http://purl.obolibrary.org/obo/LBO_0000001
+        note: The purl link goes to a 404 page.
+    - name: externaldatabaseid
+      type: uuid7
+      comment: >-
+        A unique identifier for the external database from which the breed information was sourced. This identifier is used to uniquely identify each external database in the database.
+      x-reference:
+      - ontology: schema.org
+        term: schema:identifier
+        relation: broadMatch
+        url: https://schema.org/identifier

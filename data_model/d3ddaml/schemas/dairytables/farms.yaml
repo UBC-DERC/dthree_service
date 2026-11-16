@@ -1,0 +1,43 @@
+- name: farms
+  type: BASE TABLE
+  comment: >-
+    A table that contains information about the farms in the dairy database. This table is used to store information about the farms, such as their name, location, and other relevant details. Each farm is assigned a unique identifier, and additional information about the farm can be stored in this table.
+  x-reference:
+  - ontology: schema.org
+    term: schema:Place
+    relation: broadMatch
+    url: https://schema.org/Place
+  columns:
+    - $ref: columns/farmid.yaml
+    - name: name
+      type: text
+      comment: The name of the farm.
+      x-reference:
+      - ontology: schema.org
+        term: schema:name
+        relation: broadMatch
+        url: https://schema.org/name
+    - name: description
+      type: text
+      comment: A description of the farm.
+      x-reference:
+      - ontology: schema.org
+        term: schema:description
+        relation: broadMatch
+        url: https://schema.org/description
+    - name: address
+      type: text
+      comment: The address of the farm.
+      x-reference:
+      - ontology: schema.org
+        term: schema:address
+        relation: broadMatch
+        url: https://schema.org/address
+    - name: location
+      type: geography
+      comment: The geographical location of the farm, represented as a polygon.
+      x-reference:
+      - ontology: schema.org
+        term: schema:geo
+        relation: broadMatch
+        url: https://schema.org/geo

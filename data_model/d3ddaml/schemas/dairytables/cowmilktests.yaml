@@ -1,0 +1,24 @@
+- name: cowmilktests
+  type: BASE TABLE
+  comment: Store the cow-specific information from a particular milk test. This table is a child of the milktests table.
+  columns:
+  - $ref: columns/milktestid.yaml
+  - $ref: columns/cowid.yaml
+  - name: test
+    type: integer
+    comment: A number, I assume this is just a serial from DairyComp.
+  - name: milkkg
+    type: decimal(10,2)
+    comment: The amount of milk in kilograms.
+  - name: fatpct
+    type: decimal(5,2)
+    comment: The percentage of fat in the milk.
+  - name: proteinpct
+    type: decimal(5,2)
+    comment: The percentage of protein in the milk.
+  - name: somaticcellcount
+    type: integer
+    comment: The somatic cell count in the milk.  
+  - $ref: columns/datecreated.yaml
+  - $ref: columns/datemodified.yaml
+  

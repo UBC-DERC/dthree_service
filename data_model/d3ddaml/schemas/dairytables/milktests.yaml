@@ -1,0 +1,42 @@
+- name: milktests
+  comment: A table to store the results of milk tests for cows.
+  type: BASE TABLE
+  columns:
+    - $ref: columns/milktestid.yaml
+    - $ref: columns/instrumentinstanceid.yaml
+    - $ref: columns/supplierid.yaml
+    - name: testdate
+      type: date
+      comment: The date when the milk test was conducted.
+    - $ref: columns/datecreated.yaml
+    - $ref: columns/datemodified.yaml
+  constraints:
+  - name: milktest_pk
+    type: PRIMARY KEY
+    ddl: PRIMARY KEY (milktestid)
+    columns:
+    - milktestid
+  - name: cow_fk
+    type: FOREIGN KEY
+    columns:
+    - cowid
+    comment: A foreign key to point to the cow id.
+    ddl: FOREIGN KEY (cowid) REFERENCES cows(cowid) ON UPDATE CASCADE ON DELETE CASCADE
+    references:
+      table: cows
+      columns:
+      - cowid
+      on_update: CASCADE
+      on_delete: CASCADE
+  - name: instrumentinstance_fk
+    type: FOREIGN KEY
+    columns:
+    - instrumentinstanceid
+    comment: A foreign key to point to the instrument instance id.
+    ddl: FOREIGN KEY (instrumentinstanceid) REFERENCES instrumentinstances(instrumentinstanceid) ON UPDATE CASCADE ON DELETE CASCADE
+    references:
+      table: instrumentinstances
+      columns:
+      - instrumentinstanceid
+      on_update: CASCADE
+      on_delete: CASCADE
